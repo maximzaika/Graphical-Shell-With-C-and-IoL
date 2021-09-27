@@ -1,0 +1,124 @@
+task3shell26437929.c            User Commands              task3shell26437929.c
+
+NAME
+      task3shell - very rudimentary command-line interpreter running in
+                   a ioL console with graphical shell
+
+DESCRIPTION
+      task3shell
+        - displays current directory, its files, and the type of each
+          file (color icons), two buttons, error handing window (whenever error
+          occurs), and accepts the clicks of all the buttons (Left Mouse Button
+          click), where the program automatically detects the purpose of user's
+          selection.
+        - improved version of the original task2shell with added functionality:
+          supports the Right Mouse Button (RMB) click on non-directory files,
+          where the options such as copy, cut, and delete appear at the bottom
+          of the application.
+
+COMPILATION & EXECUTION
+      Open your terminal (by default in Ubuntu Mate: right click within the
+      folder -> Open in Terminal) where the file task3shell26437929.c is
+      located. Enter the following command:
+         gcc task3shell26437929.c -o exec;iol -- ./exec
+
+TYPE OF BUTTONS & PURPOSE
+      Orange Button (Left Mouse Button)
+         Indicates that the file is a directory. This button updates current
+         directory to directory selected, and re-prints the files of the new
+         directory location. If there is no permission to access the directory,
+         the appropriate error is displayed in the error box (visible when
+         error occurs only)
+      Green Button (Left Mouse Button)
+         Indicates that the file is a executable non-directory file. This button
+         executes the file by running the program in a new 'xterm' terminal
+         window.
+      Blue Button (Left Mouse Button)
+         Indicates that the file is an ordinary non-directory file (for example
+         a text file). This button displays the contents of specified text file
+         in a new 'xterm' terminal window using 'less' utility.
+      Green & Blue Buttons (Right Mouse Button)
+         Activates options such as copy, cut and paste at the bottom of the
+         application.
+      Copy Button & Cut Buttons
+         Whenever the button is clicked, the data gets copied, the paste button
+         appears, and the option menu remains opened until the paste button
+         is clicked.
+      Paste Button
+         If copy or cut is clicked, the file gets pasted, and if cut is clicked,
+         then original file gets deleted. If the file exists at the destination
+         path, then it gets renames to "copy of <filename>". At the end, this
+         button closes the copy, cut, and paste menu.
+      Back Button
+         ioL console sends the command to the system go one folder back.
+      Parent Directory Button
+         ioL console sends the command to the system, which indicates that the
+         system needs to return to the main folder from where the program has
+         been executed.
+      Close Button (top right corner of the ioL console)
+         ioL console sends the command to the system, which indicates the
+         termination of the program.
+
+ASSUMPTIONS
+      installed software
+         iol must be installed in order to run the compiler
+      current directory.
+         by default, the current directory is the same as the location of
+         task3shell.
+      copy or cut file
+         selected file for copying or cutting is not a directory; otherwise,
+         the menu remains closed.
+      paste button
+         disappears if cut or copy buttons are not pressed.
+
+EXTRA FUNCTIONALITY
+      Orange, Green & Blue Buttons
+         display error whenever access to the directory or a a file is
+         not granted.
+      Orange & Blue Buttons
+         shell does not wait for the these files to finish, allowing the
+         user to continue selecting files while the file is being viewed
+         or executed in the other window
+      Blue Button
+         in order to prevent shell from jamming, the user is allowed to select
+         the text file with the size less than 500kb. If the file is greater
+         than 500kb, error will be displayed.
+      Current Directory
+         current directory is displayed each time the new directory is
+         accessed. Back button has been added to allow the user to go/return
+         to the previous folder
+      file type
+         task3shell displays the type of each file. The type of the file can be
+         differentiated via the colors of the icons: Orange, Blue, and Green
+         (refer to "TYPES OF BUTTONS & PURPOSE" to read more about these icons)
+      option menu even handler
+         whenever RMB on file is detected, copy, cut, and paste menu is
+         opened. However, if none of the options are selected (copy, cut, or
+         paste), and another file or a directory is clicked, the menu
+         disappears.
+      paste button permissions
+         whenever the file gets copied or cut, the original permission remains
+         the same.
+
+LIMITATIONS
+     Orange, Green & Blue Buttons
+         when permission to a file/directory is not granted, shell is not
+         able to provide access to the file/directory, therefore user needs
+         to find the way to make the file/directory available in order to
+         access it
+     Blue Button
+         not able to open the text file if the file size is larger than
+         500kb; instead prints appropriate error.
+     Sort by the Button Type
+         this feature has not been introduced due to not being part of
+         requirement
+     Copy & Cut Buttons
+         these commands are not allowed to be performed on directories, thefore
+         RMB (Right Mouse Button) click will not show any action
+
+REFERENCE
+     getChmod() function - paste button permissions:
+         Construidor (November, 2013). Stack overflow: Is there a C function to
+         get permissions of a file?. Retrieved from:
+         https://stackoverflow.com/questions/20238042/is-there-a-c-function-to-
+         get-permissions-of-a-file
