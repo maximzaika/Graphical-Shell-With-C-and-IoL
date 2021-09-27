@@ -1,4 +1,4 @@
-task3shell26437929.c            User Commands              task3shell26437929.c
+task3shell.c            User Commands              task3shell.c
 
 NAME
       task3shell - very rudimentary command-line interpreter running in
@@ -18,9 +18,9 @@ DESCRIPTION
 
 COMPILATION & EXECUTION
       Open your terminal (by default in Ubuntu Mate: right click within the
-      folder -> Open in Terminal) where the file task3shell26437929.c is
+      folder -> Open in Terminal) where the file task3shell.c is
       located. Enter the following command:
-         gcc task3shell26437929.c -o exec;iol -- ./exec
+         gcc task3shell.c -o exec;iol -- ./exec
 
 TYPE OF BUTTONS & PURPOSE
       Orange Button (Left Mouse Button)
